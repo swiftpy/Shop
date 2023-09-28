@@ -1,9 +1,12 @@
 import React,{createContext, useState} from 'react';
-import Home from './components/Home';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import './App.css';
+
+import Home from './components/Home';
 import Collections from './components/Collections';
 import Navbar from './components/Navbar';
+import Page404 from './components/Page404';
+
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import { toast ,  ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -55,6 +58,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/collections" element={<Collections />} />
+            <Route path='*' element={<Page404 />} />
           </Routes>
         </myContext.Provider>
         <ToastContainer />

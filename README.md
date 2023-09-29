@@ -1,3 +1,5 @@
-#Shop
-##just clone and start it in your env 
-*** enjoy ***
+# Shop
+## Just clone and start it in your env
+
+
+**Enjoy**

@@ -8,13 +8,15 @@ const {products,AddCard} = useContext(myContext);
 
 
   return (
-    <div className='container d-flex flex-wrap justify-content-center' style={{gap:'20px'}}>
-        {products.map((ele)=>
-            <div className='card d-flex flex-column justify-content-between' style={{width:'18rem'}}>
-                <img className='card-img-top' src={ele.image} />
-                <div className='d-flex card-title' style={{justifyContent:'space-between'}}><p>{ele.name}</p><p>price : {ele.price}</p><button className='btn btn-primary' onClick={()=>AddCard(ele)}>Add Card</button></div>
-            </div>
-        )}
+    <div className='flex items-center'>
+      <div className='grid grid-cols-1 medium:grid-cols-2 pc:grid-cols-3 pclarge:grid-cols-4 gap-3 mt-10 mx-auto'>
+          {products.map((ele)=>
+              <div className='flex flex-col items-center p-4 gap-2 bg-slate-50 rounded-md w-full' style={{width:'18rem'}} title={ele.name}>
+                  <img className='h-auto rounded-lgh-[0%] rounded-md' src={ele.image} />
+                  <div className='w-full flex justify-between items-center'><p className='font-semibold underline text-base text-gray-900'>{ele.price}$</p><button className='bg-sky-500 text-white p-2 rounded-md hover:bg-sky-600' onClick={()=>AddCard(ele)}>Add Card</button></div>
+              </div>
+          )}
+      </div>
     </div>
   )
 }

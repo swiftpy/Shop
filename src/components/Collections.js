@@ -39,38 +39,38 @@ function Collections() {
     console.log(TotalPrice)
 
     return (
-        <div className='container'>
-            <table class="table">
+        <div className='container overflow-x-auto'>
+            <table className="table-auto divide-y divide-gray-200 mx-auto">
             <thead>
                 <tr>
-                    <th scope="col">#ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Quantité</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">SubTotal</th>
-                    <th scope="col">Action</th>
+                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">#ID</th>
+                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Name</th>
+                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Image</th>
+                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Quantité</th>
+                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Price</th>
+                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">SubTotal</th>
+                    <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider text-center">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="bg-white divide-y divide-gray-200">
             {
                 InCard.map((ele)=>
                 <>
                     <tr>
-                    <th scope="row">{ele.id}</th>
-                    <td>{ele.name}</td>
-                    <td><img src={ele.image} width={70}/></td>
-                    <td><AiOutlineArrowUp onClick={()=>ArrowUp(ele)} style={{marginRight : '5px'}}/>{ele.quantité}<AiOutlineArrowDown onClick={()=>ArrowDown(ele)} style={{marginLeft : '5px'}}/></td>
-                    <td>{ele.price}</td>
-                    <td>{ele.price * ele.quantité}</td>
-                    <td><BsFillTrashFill onClick={()=>Trash(ele)}/></td>
+                        <th className="px-6 py-4 whitespace-nowrap" scope="row">{ele.id}</th>
+                        <td className="px-6 py-4 whitespace-nowrap text-center font-mono underline text-xl">{ele.name}</td>
+                        <td className="px-6 py-4 whitespace-nowrap"><img className='mx-auto' src={ele.image} width={70}/></td>
+                        <td className="px-6 py-4 whitespace-nowrap text-center"><div className='flex justify-center items-center'><AiOutlineArrowUp className='cursor-pointer' onClick={()=>ArrowUp(ele)} style={{marginRight : '5px'}}/>{ele.quantité}<AiOutlineArrowDown className='cursor-pointer' onClick={()=>ArrowDown(ele)} style={{marginLeft : '5px'}}/></div></td>
+                        <td className="px-6 py-4 whitespace-nowrap text-center">{ele.price}$</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-center">{ele.price * ele.quantité}$</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-2xl"><BsFillTrashFill className='text-sky-600 mx-auto cursor-pointer ;' onClick={()=>Trash(ele)}/></td>
                     </tr>
                 </>
                 )
             }
             </tbody>
             </table>
-            <div className='text-center d-flex flex-row justify-content-center'><p>Total : </p><p className='text-primary'>&nbsp;{TotalPrice}</p></div>
+            <div className='flex items-center justify-end font-mono text-2xl'><p>Total : &nbsp;</p><p className='text-blue-700 underline font-bold '>{TotalPrice}$</p></div>
         </div>
     )
     }
